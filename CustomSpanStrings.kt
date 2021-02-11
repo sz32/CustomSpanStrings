@@ -1,5 +1,3 @@
-package com.app.xval.utils
-
 import android.graphics.Typeface
 import android.text.SpannableStringBuilder
 import android.text.Spanned
