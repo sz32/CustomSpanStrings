@@ -74,3 +74,4 @@ For applying all spans and set to your textview
 .build()
 ```
 
+![](asset/preview.png)
