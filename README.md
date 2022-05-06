@@ -3,75 +3,62 @@
 CustomSpanString is a class which you can use for applying multiple spans in single textview the spans you can use for Bold, Underline, Color and Clickable
 
 
-#Usage
+## Usage
 ```kotlin
+val greeting = "Hello"
+val name = "SpannableString"
 
-val termsOfUseLink = "Terms of Use"
-val privacyPolicy = "Privacy Policy."
-val completeString = "By continuing you are agreeing to company_name, $termsOfUseLink,and confirm that you have read and agree with company_name,$privacyPolicy"
+// Important: Set final text in textView before using CustomSpanStrings
+val title = "$greeting, $name"
+textView.text = title
 
-CustomSpanStrings()
-.setCompleteString(completeString)
-.setStrings(termsOfUseLink, privacyPolicy)
-.setClickableSpan(object : ClickAbleCustomSpanListener {
-  override fun onClickSpan() {
-    Toast.makeText(context, "Toast New", Toast.LENGTH_SHORT).show()
-  }
-})
-.setBoldSpan()
-.setUnderlineSpan()
-.setColorSpan(Color.BLACK, Color.BLACK)
-.setTextView(termsAndCondn)
-.build()
+CustomSpanStrings.withTextView(textView)
+    .addClickListener(name) {
+        // Do something when $name is clicked
+    }
+    .applyBold(name) // To apply bold to $name
+    .applyUnderline(name) // To apply underline to $name
+    .applyColor(Color.GRAY, name) // To change color of $name
+    .applyColor(Color.LTGRAY, greeting) // To change color of $greeting
+    .commit() // Finally commit all changes
 ```
 
-#Bold
+### Initialize
+To initialize SpannableStringBuilder using the text from textView
 ```kotlin
-setBoldSpan()
+CustomSpanStrings.withTextView(textView)
 ```
 
-#Underline
+### Clickable
+To add click listener to $name text.
 ```kotlin
-setUnderlineSpan()
+.addClickListener(name) {
+    // Do something when $name is clicked
+}
 ```
 
-#Color
-this function accepts multiple arguments and it is based on your strings if you give multiple strings to a ```setStrings(varOne,varTwo)``` then the color will span will applied according to your strings variable
+### Bold
+To apply bold to $name text. You can pass multiple texts to apply bold effect to the texts. 
 ```kotlin
-setColorSpan(Color.BLACK, Color.BLUE)
+.applyBold(name)
 ```
 
-#Apply on TextView
-Give your TextView to this function
+### Underline
+To apply underline to $name text. You can pass multiple texts to apply underline effect to the texts.
 ```kotlin
-.setTextView(termsAndCondn)
+.applyUnderline(name)
 ```
 
-#Clickable
-To click on a particular string from yur complete string this function will be used
+### Color
+To apply grey color to $name text. You can pass multiple texts to apply same color to the texts.
 ```kotlin
-.setClickableSpan(object : ClickAbleCustomSpanListener {
-  override fun onClickSpan() {
-    Toast.makeText(context, "Toast New", Toast.LENGTH_SHORT).show()
-  }
-})
+.applyColor(Color.GRAY, name)
 ```
 
-#Strings you want to apply spans
-this function able to receive multiple params
-```kotlin
-.setStrings(termsOfUseLink, privacyPolicy)
-```
-
-#Complete String
-```kotlin
-.setCompleteString(completeString)
-```
-
-#Build
+### Commit
 For applying all spans and set to your textview
 ```kotlin
-.build()
+.commit()
 ```
 
-![](asset/preview.png)
+![](asset/preview.jpeg)
