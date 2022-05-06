@@ -3,7 +3,7 @@
 CustomSpanString is a class which you can use for applying multiple spans in single textview the spans you can use for Bold, Underline, Color and Clickable
 
 
-#Usage
+## Usage
 ```kotlin
 val greeting = "Hello"
 val name = "SpannableString"
@@ -23,13 +23,13 @@ CustomSpanStrings.withTextView(textView)
     .commit() // Finally commit all changes
 ```
 
-#Initialize
+### Initialize
 To initialize SpannableStringBuilder using the text from textView
 ```kotlin
 CustomSpanStrings.withTextView(textView)
 ```
 
-#Clickable
+### Clickable
 To add click listener to $name text.
 ```kotlin
 .addClickListener(name) {
@@ -37,25 +37,25 @@ To add click listener to $name text.
 }
 ```
 
-#Bold
+### Bold
 To apply bold to $name text. You can pass multiple texts to apply bold effect to the texts. 
 ```kotlin
 .applyBold(name)
 ```
 
-#Underline
+### Underline
 To apply underline to $name text. You can pass multiple texts to apply underline effect to the texts.
 ```kotlin
 .applyUnderline(name)
 ```
 
-#Color
+### Color
 To apply grey color to $name text. You can pass multiple texts to apply same color to the texts.
 ```kotlin
 .applyColor(Color.GRAY, name)
 ```
 
-#Commit
+### Commit
 For applying all spans and set to your textview
 ```kotlin
 .commit()
